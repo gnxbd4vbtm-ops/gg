@@ -372,31 +372,28 @@ class GGWindow(Gtk.ApplicationWindow):
         if css is None:
             return
 
-        provider = Gtk.CssProvider()
+        provider = self.css_provider
+        if provider is None:
+            provider = Gtk.CssProvider()
+            display = Gdk.Display.get_default()
+            if display is None:
+                return
+            Gtk.StyleContext.add_provider_for_display(
+                display,
+                provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+            )
+            self.css_provider = provider
+
         try:
+            # Reusing the provider replaces its rules in place, so a live
+            # theme change does not flash the previous stylesheet.
             provider.load_from_data(css.encode("utf-8"), -1)
         except GLib.Error as error:
             print(
                 f"gg: could not load stylesheet: {error.message}",
                 file=sys.stderr,
             )
-            return
-
-        display = Gdk.Display.get_default()
-        if display is None:
-            return
-
-        if self.css_provider is not None:
-            Gtk.StyleContext.remove_provider_for_display(
-                display, self.css_provider
-            )
-
-        Gtk.StyleContext.add_provider_for_display(
-            display,
-            provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
-        )
-        self.css_provider = provider
 
     def _on_theme_file_changed(
         self, _monitor, file, _other_file, event_type

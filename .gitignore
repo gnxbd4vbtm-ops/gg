@@ -1,0 +1,21 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.class
+
+# Build artifacts
+/build/
+/gg-gui-bin
+
+# Compiled binaries
+*.o
+*.so
+*.a
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
