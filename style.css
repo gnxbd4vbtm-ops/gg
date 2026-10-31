@@ -1,0 +1,131 @@
+window.gg-window {
+    background: transparent;
+}
+
+.gg-shell {
+    background-color: alpha(@window_bg_color, 0.97);
+    border: 1px solid alpha(@window_fg_color, 0.10);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+.gg-logo {
+    background-color: @accent_bg_color;
+    color: @accent_fg_color;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px;
+}
+
+.gg-title {
+    color: @window_fg_color;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.gg-subtitle {
+    color: alpha(@window_fg_color, 0.55);
+    font-size: 12px;
+}
+
+.gg-search {
+    background-color: @card_bg_color;
+    border: 1px solid alpha(@window_fg_color, 0.08);
+    border-radius: 16px;
+    padding: 6px 10px;
+}
+
+.gg-search:focus-within {
+    border-color: alpha(@accent_bg_color, 0.65);
+}
+
+.gg-entry {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: @window_fg_color;
+    font-size: 16px;
+    padding: 6px 0;
+}
+
+.gg-entry:focus {
+    box-shadow: none;
+}
+
+button.gg-secondary {
+    background-color: alpha(@window_fg_color, 0.08);
+    border: 1px solid alpha(@window_fg_color, 0.10);
+    border-radius: 12px;
+    color: @window_fg_color;
+    padding: 8px 16px;
+}
+
+button.gg-secondary:hover {
+    background-color: alpha(@window_fg_color, 0.13);
+}
+
+button.gg-icon-button {
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    color: alpha(@window_fg_color, 0.65);
+    padding: 8px;
+}
+
+button.gg-icon-button:hover {
+    background-color: alpha(@window_fg_color, 0.08);
+    color: @window_fg_color;
+}
+
+.gg-result {
+    background-color: @card_bg_color;
+    border: 1px solid alpha(@window_fg_color, 0.08);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.gg-shortcut {
+    color: @accent_bg_color;
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.gg-action {
+    color: @window_fg_color;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gg-status {
+    color: alpha(@window_fg_color, 0.72);
+    font-size: 12px;
+}
+
+.gg-section {
+    color: alpha(@window_fg_color, 0.50);
+    font-size: 11px;
+    font-weight: 700;
+    padding-top: 2px;
+}
+
+button.gg-quick {
+    background-color: alpha(@window_fg_color, 0.055);
+    border: 1px solid alpha(@window_fg_color, 0.07);
+    border-radius: 14px;
+    color: @window_fg_color;
+    font-size: 13px;
+    padding: 12px 14px;
+}
+
+button.gg-quick:hover {
+    background-color: alpha(@accent_bg_color, 0.16);
+    border-color: alpha(@accent_bg_color, 0.45);
+}
+
+.gg-footer-text {
+    color: alpha(@window_fg_color, 0.45);
+    font-size: 11px;
+}

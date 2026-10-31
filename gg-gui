@@ -1,0 +1,16 @@
+#!/bin/sh
+DIR="$HOME/Projects/gg"
+
+# Prefer the compiled bytecode when it is newer than the source.
+if [ -f "$DIR/gg_gui.pyc" ] && [ "$DIR/gg_gui.pyc" -nt "$DIR/gg_gui.py" ]; then
+    SCRIPT="$DIR/gg_gui.pyc"
+else
+    SCRIPT="$DIR/gg_gui.py"
+fi
+
+# Prefer the compiled native entrypoint.
+if [ -x "$DIR/gg-gui-bin" ]; then
+    exec "$DIR/gg-gui-bin" "$SCRIPT" "$@"
+fi
+
+exec python3 "$SCRIPT" "$@"
